@@ -1,5 +1,5 @@
 ;value 2500
-
+;gameid HiganbanaTrial
 *define
 
 ;デバッグ用（セーブデータを別のフォルダに保存）
@@ -7,7 +7,8 @@
 ;effectskip 0
 humanz 900
 
-;windowback
+windowback
+automode_time -50
 
 mode_wave_demo
 
@@ -22,8 +23,10 @@ killmenu 4
 killmenu 2
 ;「表示形式」項目を非表示
 
-caption "彼岸花の咲く夜に - お試し読み版 - "
-versionstr "彼岸花の咲く夜に - お試し読み版 - 　ver1.000","制作　０７ｔｈ　Ｅｘｐａｎｓｉｏｎ"
+;caption "彼岸花の咲く夜に - お試し読み版 - "
+;versionstr "彼岸花の咲く夜に - お試し読み版 - 　ver1.000","制作　０７ｔｈ　Ｅｘｐａｎｓｉｏｎ"
+caption "Higanbana no Saku Yoru ni -Trial-"
+versionstr "Higanbana no Saku Yoru ni -Trial- ver1.000","created by 07th Expansion"
 
 ;メニューの内容
 ;rmenu "セーブする",save,"ロードする",load,"次の選択肢へスキップする",skip,"文字を消す",windowerase,"回想",lookback,"タイトルに戻る",reset
@@ -22550,7 +22553,7 @@ lsp 698,":c;bmp\system\hane_load.bmp",0,6,240
 
 ;システムボタン
 mov %tmp1,130 : mov %tmp2,38
-lsp Save,":a/2,0,3;bmp\system\save.bmp",10,%tmp1 : add %tmp1,%tmp2    ;ページ２
+if %load_for_title = 0 lsp Save,":a/2,0,3;bmp\system\save.bmp",10,%tmp1 : add %tmp1,%tmp2    ;ページ２
 lsp Load,":a/2,0,3;bmp\system\Load_b.bmp",10,%tmp1 : add %tmp1,%tmp2 
 lsp rmenu_btn_Exit,":a/2,0,3;bmp\system\exit.bmp",10,%tmp1
 
@@ -23836,7 +23839,7 @@ if %tmp = 1 goto *b_sakuru_logo_shuuryou
 
 	btndef ""
 	btntime 000
-	btnwait2 %tmp
+	;btnwait2 %tmp
 	
 
 	lsp 100,":c;bmp\title\Circle_logo\circle_logo.bmp",0,0
